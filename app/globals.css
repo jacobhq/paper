@@ -86,3 +86,7 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.cl-internal-16mc20d {
+  display: none !important;
+}
