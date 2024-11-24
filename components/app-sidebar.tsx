@@ -12,9 +12,9 @@ import {
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
+import { NavDecks } from "@/components/nav-decks"
 import { NavUser } from "@/components/nav-user"
-import { TeamSwitcher } from "@/components/team-switcher"
+import { CourseSwitcher } from "@/components/course-switcher"
 import {
   Sidebar,
   SidebarContent,
@@ -30,21 +30,21 @@ const data = {
     email: "jacobm0@glynschool.org",
     avatar: "/avatars/shadcn.jpg",
   },
-  teams: [
+  courses: [
     {
       name: "Computer Science",
-      logo: Cpu,
-      plan: "12A/Cu1",
+      icon: Cpu,
+      classCode: "12A/Cu1",
     },
     {
       name: "Further Maths",
-      logo: SquareFunction,
-      plan: "12C/Fm1, 12D/Fm1",
+      icon: SquareFunction,
+      classCode: "12C/Fm1, 12D/Fm1",
     },
     {
       name: "Chemistry",
-      logo: FlaskConical,
-      plan: "12B/Ch1",
+      icon: FlaskConical,
+      classCode: "12B/Ch1",
     },
   ],
   navMain: [
@@ -92,7 +92,7 @@ const data = {
       ],
     },
     {
-      title: "Course Settings",
+      title: "Settings",
       url: "#",
       icon: Settings2,
       items: [
@@ -115,7 +115,7 @@ const data = {
       ],
     },
   ],
-  projects: [
+  decks: [
     {
       name: "Networks",
       url: "#",
@@ -138,11 +138,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        <CourseSwitcher courses={data.courses} />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <NavDecks decks={data.decks} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />

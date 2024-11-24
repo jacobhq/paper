@@ -1,11 +1,11 @@
 "use client"
 
 import {
-  Folder,
+  GalleryVerticalEnd,
   Forward,
   MoreHorizontal,
   Trash2,
-  type LucideIcon,
+  type LucideIcon
 } from "lucide-react"
 
 import {
@@ -25,33 +25,27 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 
-export function NavProjects({
-  projects,
-}: {
-  projects: {
-    name: string
-    url: string
-    icon: LucideIcon
-  }[]
-}) {
-  const { isMobile } = useSidebar()
+export function NavDecks({
+                           decks,
+                         }: { decks: { name: string; url: string; icon: LucideIcon }[] }) {
+  const {isMobile} = useSidebar()
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>Projects</SidebarGroupLabel>
+      <SidebarGroupLabel>Decks</SidebarGroupLabel>
       <SidebarMenu>
-        {projects.map((item) => (
+        {decks.map((item) => (
           <SidebarMenuItem key={item.name}>
             <SidebarMenuButton asChild>
               <a href={item.url}>
-                <item.icon />
+                <item.icon/>
                 <span>{item.name}</span>
               </a>
             </SidebarMenuButton>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuAction showOnHover>
-                  <MoreHorizontal />
+                  <MoreHorizontal/>
                   <span className="sr-only">More</span>
                 </SidebarMenuAction>
               </DropdownMenuTrigger>
@@ -61,17 +55,17 @@ export function NavProjects({
                 align={isMobile ? "end" : "start"}
               >
                 <DropdownMenuItem>
-                  <Folder className="text-muted-foreground" />
-                  <span>View Project</span>
+                  <GalleryVerticalEnd className="text-muted-foreground"/>
+                  <span>View Deck</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Forward className="text-muted-foreground" />
-                  <span>Share Project</span>
+                  <Forward className="text-muted-foreground"/>
+                  <span>Share Deck</span>
                 </DropdownMenuItem>
-                <DropdownMenuSeparator />
+                <DropdownMenuSeparator/>
                 <DropdownMenuItem>
-                  <Trash2 className="text-muted-foreground" />
-                  <span>Delete Project</span>
+                  <Trash2 className="text-muted-foreground"/>
+                  <span>Delete Deck</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -79,7 +73,7 @@ export function NavProjects({
         ))}
         <SidebarMenuItem>
           <SidebarMenuButton className="text-sidebar-foreground/70">
-            <MoreHorizontal className="text-sidebar-foreground/70" />
+            <MoreHorizontal className="text-sidebar-foreground/70"/>
             <span>More</span>
           </SidebarMenuButton>
         </SidebarMenuItem>
