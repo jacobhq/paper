@@ -284,7 +284,7 @@ const SidebarTrigger = React.forwardRef<
         </Button>
       </TooltipTrigger>
       <TooltipContent>
-        <p>Toggle sidebar <code className="font-mono bg-neutral-800 bg-opacity-80 rounded-[4px] p-1 ml-1">[</code></p>
+        <p>Toggle sidebar <kbd className="font-mono bg-neutral-800 dark:bg-neutral-300 bg-opacity-80 rounded-[4px] p-1 ml-1">[</kbd></p>
       </TooltipContent>
     </Tooltip>
   )
