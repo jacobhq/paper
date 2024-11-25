@@ -1,9 +1,8 @@
 "use client"
 
 import {
-  BadgeCheck,
+  BadgeCheck, Blend,
   ChevronsUpDown,
-  LogIn,
   LogOut,
   Sparkles,
 } from "lucide-react"
@@ -17,8 +16,8 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
+  DropdownMenuItem, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem,
+  DropdownMenuSeparator, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import {
@@ -33,13 +32,15 @@ import {
   DialogTitle,
   DialogTrigger
 } from "@/components/ui/dialog";
-import {SignedIn, SignedOut, SignInButton, SignOutButton, SignUpButton, UserProfile, useUser} from "@clerk/nextjs";
+import {SignInButton, SignOutButton, SignUpButton, UserProfile, useUser} from "@clerk/nextjs";
 import {Button} from "@/components/ui/button";
 import {Skeleton} from "@/components/ui/skeleton";
+import {useTheme} from "next-themes";
 
 export function NavUser() {
   const {isMobile} = useSidebar()
   const {user, isLoaded, isSignedIn} = useUser()
+  const {theme, setTheme} = useTheme()
 
   return (
     <SidebarMenu>
@@ -72,37 +73,48 @@ export function NavUser() {
                   align="end"
                   sideOffset={4}
                 >
-                  <SignedIn>
-                    <DropdownMenuGroup>
+                  <DropdownMenuGroup>
+                    <DropdownMenuItem>
+                      <Sparkles/>
+                      Upgrade to Pro
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
+                  <DropdownMenuSeparator/>
+                  <DropdownMenuGroup>
+                    <DropdownMenuSub>
+                      <DropdownMenuSubTrigger>
+                        <Blend/>
+                        Theme
+                      </DropdownMenuSubTrigger>
+                      <DropdownMenuPortal>
+                        <DropdownMenuSubContent>
+                          <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
+                            <DropdownMenuRadioItem value="light">
+                              Light
+                            </DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="dark">
+                              Dark
+                            </DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="system">
+                              System
+                            </DropdownMenuRadioItem>
+                          </DropdownMenuRadioGroup>
+                        </DropdownMenuSubContent>
+                      </DropdownMenuPortal>
+                    </DropdownMenuSub>
+                    <DialogTrigger asChild>
                       <DropdownMenuItem>
-                        <Sparkles/>
-                        Upgrade to Pro
+                        <BadgeCheck/>
+                        Account Settings
                       </DropdownMenuItem>
-                    </DropdownMenuGroup>
-                    <DropdownMenuSeparator/>
-                    <DropdownMenuGroup>
-                      <DialogTrigger asChild>
-                        <DropdownMenuItem>
-                          <BadgeCheck/>
-                          Account Settings
-                        </DropdownMenuItem>
-                      </DialogTrigger>
-                    </DropdownMenuGroup>
-                    <SignOutButton>
-                      <DropdownMenuItem>
-                        <LogOut/>
-                        Log out
-                      </DropdownMenuItem>
-                    </SignOutButton>
-                  </SignedIn>
-                  <SignedOut>
-                    <SignInButton>
-                      <DropdownMenuItem>
-                        <LogIn/>
-                        Sign in
-                      </DropdownMenuItem>
-                    </SignInButton>
-                  </SignedOut>
+                    </DialogTrigger>
+                  </DropdownMenuGroup>
+                  <SignOutButton>
+                    <DropdownMenuItem>
+                      <LogOut/>
+                      Log out
+                    </DropdownMenuItem>
+                  </SignOutButton>
                 </DropdownMenuContent>
               </DropdownMenu>
               :
