@@ -3,7 +3,7 @@
 import * as React from "react"
 import {
   BookOpen,
-  Bot, Brain,
+  Brain,
   Cpu, FlaskConical,
   Frame,
   Map,
