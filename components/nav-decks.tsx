@@ -73,8 +73,8 @@ export function NavDecks({
         ))}
         <SidebarMenuItem>
           <SidebarMenuButton className="text-sidebar-foreground/70">
-            <MoreHorizontal className="text-sidebar-foreground/70"/>
-            <span>More</span>
+            <GalleryVerticalEnd className="text-sidebar-foreground/70"/>
+            <span>All decks</span>
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarMenu>
