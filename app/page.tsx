@@ -14,6 +14,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 
 export default function Home() {
@@ -41,7 +42,7 @@ export default function Home() {
           </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <Link href="https://daffyduck.tech/wp-content/uploads/2020/12/OCR-AS-and-A-Level-Computer-Science-PG-Online-by-PM-Heathcote-and-RSU-Heathcote-z-lib.org_.pdf" asChild>
+          <Link href="https://daffyduck.tech/wp-content/uploads/2020/12/OCR-AS-and-A-Level-Computer-Science-PG-Online-by-PM-Heathcote-and-RSU-Heathcote-z-lib.org_.pdf">
             <Button>View resources</Button>
           </Link>
         </div>
