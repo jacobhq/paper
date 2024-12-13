@@ -13,6 +13,8 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
+import { Button } from "@/components/ui/button"
+
 
 export default function Home() {
   return (
@@ -39,12 +41,9 @@ export default function Home() {
           </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-          </div>
-          <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+          <Link href="https://daffyduck.tech/wp-content/uploads/2020/12/OCR-AS-and-A-Level-Computer-Science-PG-Online-by-PM-Heathcote-and-RSU-Heathcote-z-lib.org_.pdf" asChild>
+            <Button>View resources</Button>
+          </Link>
         </div>
       </SidebarInset>
     </SidebarProvider>
